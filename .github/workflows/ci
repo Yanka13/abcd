@@ -26,3 +26,9 @@ jobs:
       - name: Test with pytest
         run: |
           pipenv run pytest
+      - name: Comment PR with Test Summary
+        uses: unsplash/comment-on-pr@v1.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "✅ CI passed: All tests completed successfully!"
